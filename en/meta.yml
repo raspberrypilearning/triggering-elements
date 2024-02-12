@@ -1,11 +1,9 @@
-title: default-project-template
+title: Triggering elements
 hero_image: images/banner.png
-description: default-project-template description
+description: Triggering elements
 version: 4
 listed: false
 copyedit: false
 last_tested: "2022-05-19"
 steps:
-  - title: Introduction
-  - title: Step title
-  - title: What next?
+  - title: Triggering elements

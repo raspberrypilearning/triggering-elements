@@ -1,59 +1,55 @@
-## Introduction
+The Intersection observer is used to detect when an element (e.g. `<img>`, `<p>`, or `<div>`) enters or leaves the user's browser viewport.
 
-Add project description here. What will learners be making? Broadly what skills will they be learning?
+It can be used to trigger actions in its callback. These actions can be on the observed element, or a different element on the page.
 
-### What you will make
+Here is an example of the use of `intersection observer` to trigger an action when an element with a specific id attribute ('trigger') enters (or leaves) the viewport:
 
---- no-print ---
-Add instructions for interacting with the embedded content here.
-
-<div class="scratch-preview">
-  <iframe allowtransparency="true" width="485" height="402" src="https://scratch.mit.edu/projects/embed/160619869/?autostart=false" frameborder="0"></iframe>
-</div>
---- /no-print ---
-
---- print-only ---
-![Complete project](images/showcase_static.png)
---- /print-only ---
-
---- collapse ---
+--- code ---
 ---
-title: What you will need
----
-### Hardware
-
-+ A computer or tablet capable of running Scratch 3
-
-### Software
-
-+ Scratch 3 (either [online](https://scratch.mit.edu/){:target="_blank"} or [offline](https://scratch.mit.edu/download){:target="_blank"})
-+ Python 3
-+ This project can be completed in a web browser using [trinket.io](https://trinket.io/)
-
-### Downloads
-
-+ Download the project [starter file](https://rpf.io/p/en/projectName-go){:target="_blank"} if working offline
-
---- /collapse ---
-
---- collapse ---
----
-title: What you will learn
+language: js
+filename:
+line_numbers: true
+line_number_start: 1
+line_highlights: 
 ---
 
-+ Learning objective 1
-+ Learning objective 2
-+ Learning objective 3
+const triggerObserver = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) {
+    // PUT ACTION HERE
+  }
+});
+triggerObserver.observe(document.getElementById("trigger"));
 
---- /collapse ---
+--- /code ---
 
---- collapse ---
+On line 1, `entries` is a collection of all elements on the web page with the `id="trigger"` attribute (as specified in the observer call on line 6). 
+
+A collection of items is called an 'array'.
+
+The `triggerObserver` is set to observe when the first (in this case: the only) item in the `entries` array comes into the viewport (using `isIntersecting` on line 2).
+
+When it does, the observer 'callback' carries out the actions specified on line 3.
+
+Here is an example of the use of `intersection observer` to trigger an action when **any** element with a specific attribute ('trigger') enters (or leaves) the viewport:
+
+--- code ---
 ---
-title: Additional information for educators
+language: js
+filename:
+line_numbers: true
+line_number_start: 1
+line_highlights: 
 ---
 
-You can download the completed project [here](https://rpf.io/p/en/projectName-get){:target="_blank"}.
+const triggers = document.querySelectorAll("trigger");
+const triggerObserver = new IntersectionObserver((entries) => {
+  entries.forEach(
+    (entry) => {
+      if (entry.isIntersecting) {
+        // PUT ACTION HERE
+    }
+  });
+});
+triggers.forEach((trigger) => imageObserver.observe(trigger));
 
-If you need to print this project, please use the [printer-friendly version](https://projects.raspberrypi.org/en/projects/projectName/print){:target="_blank"}.
-
---- /collapse ---
+--- /code ---
