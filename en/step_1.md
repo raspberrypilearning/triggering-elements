@@ -18,7 +18,7 @@ const triggerObserver = new IntersectionObserver((entries) => {
     // PUT ACTION HERE
   }
 });
-triggerObserver.observe(document.getElementById("trigger"));
+triggerObserver.observe(document.querySelector("#trigger"));
 
 --- /code ---
 
