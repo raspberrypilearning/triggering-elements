@@ -1,8 +1,8 @@
-L'Intersection Observer est utilisé pour détecter quand un élément (par exemple `<img>`, `<p>` ou `<div>`) entre ou quitte la fenêtre du navigateur de l'utilisateur.
+The intersection observer is used to detect when an element (e.g. `<img>`, `<p>`, or `<div>`) enters or leaves the user's browser viewport.
 
-Il peut être utilisé pour déclencher des actions dans son rappel. Ces actions peuvent être sur l'élément observé, ou sur un autre élément de la page.
+Il peut être utilisé pour déclencher des actions dans son rappel. These actions can act on the observed element, or a different element on the page.
 
-Voici un exemple d'utilisation de l' `intersection Observer` pour déclencher une action lorsqu'un élément avec un attribut id spécifique ('trigger') entre (ou quitte) la fenêtre d'affichage :
+Here is an example of the use of `IntersectionObserver` to trigger an action when an element with a specific id attribute ('trigger') enters (or leaves) the viewport:
 
 ## --- code ---
 
@@ -22,15 +22,15 @@ triggerObserver.observe(document.querySelector("#trigger"));
 
 \--- /code ---
 
-À la ligne 1, `entries` est une collection de tous les éléments de la page web avec l'attribut `id="trigger"` (comme spécifié dans l'appel de l'observateur à la ligne 6).
+On line 1, `entries` is a collection of all elements on the webpage with the `id="trigger"` attribute (as specified in the observer call on line 6).
 
 Une collection d'éléments est appelée un « tableau ».
 
-Le `triggerObserver` est configuré pour observer lorsque le premier (dans ce cas : le seul) élément du tableau `entries` arrive dans la fenêtre d'affichage (en utilisant `isIntersecting` à la ligne 2).
+The `triggerObserver` is set to observe when the first (in this case, the only) item in the `entries` array comes into the viewport (using `isIntersecting` on line 2).
 
-Lorsqu'il le fait, l'observateur 'callback' exécute les actions spécifiées à la ligne 3.
+When it does, the observer's callback carries out the actions specified on line 3.
 
-Voici un exemple d'utilisation de l' `intersection Observer` pour déclencher une action lorsque **un** élément avec un attribut spécifique ('trigger') entre (ou quitte) la fenêtre d'affichage :
+Here is an example of the use of `IntersectionObserver` to trigger an action when **any** element with a specific attribute ('trigger') enters (or leaves) the viewport:
 
 ## --- code ---
 
