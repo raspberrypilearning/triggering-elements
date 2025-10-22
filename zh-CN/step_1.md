@@ -1,8 +1,8 @@
-The intersection observer is used to detect when an element (e.g. `<img>`, `<p>`, or `<div>`) enters or leaves the user's browser viewport.
+交叉观察器用于检测元素（例如 `<img>`，`<p>` 或 `<div>`）何时进入或离开用户的浏览器视口。
 
-It can be used to trigger actions in its callback. These actions can act on the observed element, or a different element on the page.
+它可用于在回调中触发操作。 这些操作可以作用于观察到的元素，或者页面上的其他元素。
 
-Here is an example of the use of `IntersectionObserver` to trigger an action when an element with a specific id attribute ('trigger') enters (or leaves) the viewport:
+下面是使用 `IntersectionObserver` 的示例，当具有特定 id 属性（“trigger”）的元素进入（或离开）视口时触发操作：
 
 ## --- code ---
 
@@ -15,22 +15,22 @@ line_highlights:
 
 const triggerObserver = new IntersectionObserver((entries) => {
 if (entries[0].isIntersecting) {
-// PUT ACTION HERE
+// 在此处执行操作
 }
 });
 triggerObserver.observe(document.querySelector("#trigger"));
 
 \--- /code ---
 
-On line 1, `entries` is a collection of all elements on the webpage with the `id="trigger"` attribute (as specified in the observer call on line 6).
+在第 1 行中，`entries`是网页上所有具有 `id="trigger"` 属性的元素的集合（如第 6 行的观察器调用中所指定）。
 
-A collection of items is called an 'array'.
+项目的集合称为“数组”。
 
-The `triggerObserver` is set to observe when the first (in this case, the only) item in the `entries` array comes into the viewport (using `isIntersecting` on line 2).
+设置 `triggerObserver` 来观察 `entries` 数组中的第一个（在本例中是唯一的）项目何时进入视口（使用第 2 行的 `isIntersecting`）。
 
-When it does, the observer's callback carries out the actions specified on line 3.
+当它发生时，观察器的回调将执行第 3 行指定的操作。
 
-Here is an example of the use of `IntersectionObserver` to trigger an action when **any** element with a specific attribute ('trigger') enters (or leaves) the viewport:
+下面是使用 `IntersectionObserver` 的示例，当任何具有特定属性（“trigger”）的元素进入（或离开）视口时，触发操作：
 
 ## --- code ---
 
@@ -46,7 +46,7 @@ const triggerObserver = new IntersectionObserver((entries) => {
 entries.forEach(
 (entry) => {
 if (entry.isIntersecting) {
-// PUT ACTION HERE
+// 在此处执行操作
 }
 });
 });
